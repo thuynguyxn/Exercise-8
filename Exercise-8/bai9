@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập vào chuỗi gốc (chuỗi cha): ");
+            string chuoiCha = Console.ReadLine();
+
+            Console.Write("Nhập vào chuỗi cần tìm (chuỗi con): ");
+            string chuoiCon = Console.ReadLine();
+
+            bool timThay = false;
+
+            // Nếu chuỗi con dài hơn chuỗi cha thì chắc chắn không tìm thấy
+            if (chuoiCon.Length <= chuoiCha.Length)
+            {
+                // Quét chuỗi cha cho tới khi khoảng không gian còn lại bằng chiều dài chuỗi con
+                for (int i = 0; i <= chuoiCha.Length - chuoiCon.Length; i++)
+                {
+                    bool khop = true;
+
+                    // Thử so khớp chuỗi con tại vị trí i hiện tại
+                    for (int j = 0; j < chuoiCon.Length; j++)
+                    {
+                        if (chuoiCha[i + j] != chuoiCon[j])
+                        {
+                            khop = false;
+                            break; // Bị lệch ký tự, thoát vòng lặp nhỏ
+                        }
+                    }
+
+                    if (khop)
+                    {
+                        timThay = true;
+                        break; // Đã tìm thấy, thoát vòng lặp lớn
+                    }
+                }
+            }
+
+            if (timThay)
+                Console.WriteLine($"Kết quả: Chuỗi con '{chuoiCon}' CÓ xuất hiện trong chuỗi gốc.");
+            else
+                Console.WriteLine($"Kết quả: Chuỗi con '{chuoiCon}' KHÔNG xuất hiện trong chuỗi gốc.");
+        }
+    }
+}
