@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập vào một chuỗi chữ cái: ");
+            string chuoi = Console.ReadLine();
+
+            int nguyenAm = 0;
+            int phuAm = 0;
+
+            foreach (char c in chuoi)
+            {
+                // Kiểm tra xem ký tự có phải là chữ cái không
+                if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+                {
+                    char cLower = char.ToLower(c);
+                    if (cLower == 'a' || cLower == 'e' || cLower == 'i' || cLower == 'o' || cLower == 'u')
+                    {
+                        nguyenAm++;
+                    }
+                    else
+                    {
+                        phuAm++;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Số lượng nguyên âm: {nguyenAm}");
+            Console.WriteLine($"Số lượng phụ âm: {phuAm}");
+        }
+    }
+}
