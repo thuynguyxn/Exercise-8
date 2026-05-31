@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập vào một câu: ");
+            string chuoi = Console.ReadLine();
+
+            int soTu = 0;
+            bool dangTrongTu = false;
+
+            for (int i = 0; i < chuoi.Length; i++)
+            {
+                // Nếu gặp ký tự khác khoảng trắng, tab, xuống dòng
+                if (chuoi[i] != ' ' && chuoi[i] != '\t' && chuoi[i] != '\n')
+                {
+                    if (!dangTrongTu)
+                    {
+                        soTu++;
+                        dangTrongTu = true; // Đánh dấu đã bước vào phạm vi của một từ
+                    }
+                }
+                else
+                {
+                    dangTrongTu = false; // Gặp khoảng trắng nghĩa là thoát khỏi từ cũ
+                }
+            }
+
+            Console.WriteLine($"Tổng số từ trong câu là: {soTu}");
+        }
+    }
+}
