@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai7
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập vào một chuỗi ký tự hỗn hợp: ");
+            string chuoi = Console.ReadLine();
+
+            int chuCai = 0, chuSo = 0, kyTuDacBiet = 0;
+
+            foreach (char c in chuoi)
+            {
+                if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+                {
+                    chuCai++;
+                }
+                else if (c >= '0' && c <= '9')
+                {
+                    chuSo++;
+                }
+                else // Không phải chữ, không phải số thì là ký tự đặc biệt/khoảng trắng
+                {
+                    kyTuDacBiet++;
+                }
+            }
+
+            Console.WriteLine($"\n--- Kết quả thống kê ---");
+            Console.WriteLine($"Số lượng chữ cái: {chuCai}");
+            Console.WriteLine($"Số lượng chữ số: {chuSo}");
+            Console.WriteLine($"Số lượng ký tự đặc biệt: {kyTuDacBiet}");
+        }
+    }
+}
