@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập vào một chuỗi: ");
+            string chuoi = Console.ReadLine();
+
+            Console.Write("Các ký tự riêng biệt trong chuỗi là: ");
+            for (int i = 0; i < chuoi.Length; i++)
+            {
+                Console.Write(chuoi[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
