@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Console.Write("Nhập chuỗi thứ nhất: ");
+            string s1 = Console.ReadLine();
+
+            Console.Write("Nhập chuỗi thứ hai: ");
+            string s2 = Console.ReadLine();
+
+            bool bangNhau = true;
+
+            // Nếu độ dài khác nhau thì không cần so sánh tiếp
+            if (s1.Length != s2.Length)
+            {
+                bangNhau = false;
+            }
+            else
+            {
+                // So sánh từng ký tự đối ứng
+                for (int i = 0; i < s1.Length; i++)
+                {
+                    if (s1[i] != s2[i])
+                    {
+                        bangNhau = false;
+                        break; // Chỉ cần 1 ký tự lệch là dừng luôn
+                    }
+                }
+            }
+
+            if (bangNhau)
+                Console.WriteLine("Kết quả: Hai chuỗi hoàn toàn GIỐNG NHAU.");
+            else
+                Console.WriteLine("Kết quả: Hai chuỗi KHÁC NHAU.");
+        }
+    }
+}
